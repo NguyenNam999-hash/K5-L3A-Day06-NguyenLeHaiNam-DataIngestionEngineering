@@ -8,24 +8,46 @@ Họ và tên: Nguyễn Lê Hải Nam · MSSV: 2A202603699 · Lớp: L3A
   (`https://www.gutenberg.org/files/11/11-0.txt`), public domain tại Hoa Kỳ, dùng theo Project
   Gutenberg License. Snapshot tải ngày 13/11/2026; manifest đầy đủ ở `data/manifest.json`
   (`source_id=alice-1865`, license, URL, accessed_at, hash, danh sách trang).
+  
 - **Đơn vị nội dung:** nguồn là plain text, không có phân trang PDF. Tôi chia tuần tự trong từng
   chương thành **39 đơn vị** liên tiếp, không chồng lấn, mỗi đơn vị 1.500–5.000 ký tự (mục tiêu
   ~3.800), cắt tại ranh giới đoạn. Tổng **142.777 ký tự**, 12 chương; bỏ bìa, mục lục, boilerplate
   Gutenberg và dấu phân cách. Quy tắc đếm nằm trong manifest; ID trang là vị trí 1-based sau
   chuẩn hóa.
+
+  
 - **Chuẩn hóa (bước Normalize):** `normalize_text()` trong `starter/src/ingestion.py` chạy lại
   mỗi lần load `pages.jsonl` và **idempotent** (chuẩn hóa hai lần không đổi text), nên bước load
-  không thể làm lệch corpus. Thứ tự cố định: (1) Unicode **NFC**; (2) CRLF/CR → `\n`; (3) xóa
-  soft hyphen `U+00AD` và BOM `U+FEFF`; (4) `U+00A0` → space; (5) xóa dòng `[Illustration]` và
-  dòng phân cách `* * *`; (6) gộp cụm space/tab, bỏ space thừa quanh newline, gộp cụm ≥3 newline
-  thành `\n\n`; (7) `strip`. Giữ nguyên ranh giới đoạn vì strategy B cắt theo paragraph — làm
-  phẳng newline sẽ làm sai so sánh B–C. (8) Chuyển bảng về dạng markdown (nếu có).
+  không thể làm lệch corpus. Thứ tự cố định:
+
+  (1) Unicode **NFC**;
+
+  (2) CRLF/CR → `\n`;
+
+  (3) xóa soft hyphen `U+00AD` và BOM `U+FEFF`;
+
+  (4) `U+00A0` → space;
+
+  (5) xóa dòng `[Illustration]` và  dòng phân cách `* * *`;
+
+  (6) gộp cụm space/tab, bỏ space thừa quanh newline, gộp cụm ≥3 newline thành `\n\n`;
+
+  (7) `strip`. Giữ nguyên ranh giới đoạn vì strategy B cắt theo paragraph — làm
+  phẳng newline sẽ làm sai so sánh B–C.
+
+  (8) Chuyển bảng về dạng markdown (nếu có).
+
+  (9) Che giấu thông tin PII.
+
+
 - **Đo hiệu quả chuẩn hóa:** đếm trên phần thân sách của `data/alice_raw.txt` (144.483 ký tự,
   không tính boilerplate Gutenberg): **3** dòng `* * *`, **121** cụm space/tab, **69** dòng có
   space thừa ở đầu/cuối, **43** cụm newline ≥3; còn NFC, CRLF, soft hyphen, BOM, NBSP và
   `[Illustration]` đều **0** lần — bản #11 vốn đã sạch, các rule đó vẫn giữ cho nhánh PDF. Không
   có trang scan nên không dùng OCR. Sau chuẩn hóa không còn space đôi hay newline ≥3; hạn chế:
   **220** chỗ in nghiêng vẫn còn dấu `_..._` trong text.
+
+  
 - **Kiểm lỗi (fail-closed, không tự sửa):** trước khi ingest, `src/run.py` kiểm ≥30 đơn vị, page
   ID duy nhất, không đơn vị rỗng, mỗi đơn vị ≥1.500 ký tự (thực tế ngắn nhất **2.057**),
   `manifest.page_count` và tập page ID khớp `pages.jsonl`; benchmark phải có ≥20 câu, ID duy
@@ -36,13 +58,19 @@ Họ và tên: Nguyễn Lê Hải Nam · MSSV: 2A202603699 · Lớp: L3A
   ném `TypeError` nếu input không phải str. `benchmark/verify_benchmark.py` lặp lại các kiểm tra
   này độc lập, không gọi API. Mọi vi phạm đều dừng pipeline — không fallback, không sửa tay
   corpus; UI (bước 1) hiển thị đúng các cổng này kèm giá trị quan sát được.
+
+  
 - **Embedding:** `BAAI/bge-base-en-v1.5`, **768 chiều**, chạy local qua `fastembed` 0.9.1 /
   `onnxruntime` 1.31.1 (Python 3.11.15). `embed_documents` dùng cho chunk, `query_embed` cho câu
   hỏi; cùng model cho cả ba cấu hình. Không dùng mock/random vector; lỗi provider được raise,
   không fallback.
+
+  
 - **Vector store:** PostgreSQL 16 + **pgvector 0.8.7**, bảng `chunks`, metric **cosine**, tìm kiếm
   **exact** (không tạo ANN index vì corpus nhỏ). Khởi tạo bằng Docker Compose trong `starter/`
   (host `127.0.0.1:55433`), schema do `store.create_schema()` tạo.
+
+  
 - **Lệnh chạy:** từ `starter/`:
   `python -m pip install -r requirements.txt`
   → `docker compose -p day6_student_starter up -d --wait`
@@ -51,6 +79,8 @@ Họ và tên: Nguyễn Lê Hải Nam · MSSV: 2A202603699 · Lớp: L3A
   → `python -m src.run --recreate`.
   Chi phí API: **0 USD** (model local). Lần chạy cuối 72,89 giây (70,06 giây embedding, 1,81 giây
   search). Token theo tokenizer của model: corpus 19.968; A 41.003; B/C 37.067.
+
+  
 - **Metadata:** mỗi chunk giữ `document_id`, `source`, `page`, `section`, `language`,
   `document_type`, `char_count`. `section` lấy trực tiếp từ heading chương trong nguồn, là trường
   filter duy nhất; lý do: corpus có 12 chương phân biệt, filter này giúp loại distractor từ chương
