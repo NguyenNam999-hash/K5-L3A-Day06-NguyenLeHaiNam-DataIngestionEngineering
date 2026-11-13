@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Ingestion Line — Day 06 pipeline console</title>
+  <meta name="description" content="Step-by-step console for the Day 06 document ingestion and retrieval benchmark.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="masthead__brand">
+      <span class="mark" aria-hidden="true">D06</span>
+      <div class="wordmark">
+        <p class="kicker">Data ingestion engineering <span>/</span> lab console</p>
+        <h1>Ingestion <em>Line</em></h1>
+      </div>
+    </div>
+
+    <div class="masthead__meta">
+      <div class="meta-block">
+        <span>Corpus</span>
+        <strong id="corpus-label">loading…</strong>
+      </div>
+      <div class="meta-block">
+        <span>Model</span>
+        <strong>BGE-base · 768d</strong>
+      </div>
+      <div class="meta-block">
+        <span>Store</span>
+        <strong>pgvector · cosine</strong>
+      </div>
+      <button class="ghost" id="reset" type="button" title="Clear in-memory progress and start from step 1">
+        Start over
+      </button>
+    </div>
+
+    <nav class="rail" id="rail" aria-label="Pipeline progress"></nav>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <div class="intro__headline">
+        <p class="eyebrow">Five moves, one operator</p>
+        <h2>From raw text to a<br><em>scored</em> retrieval test.</h2>
+      </div>
+      <div class="intro__side">
+        <p>
+          Each step runs against the real lab modules in <code>starter/src</code>:
+          ingestion, chunking, FastEmbed, pgvector and the strict evidence-hit evaluator.
+          Press <strong>Run</strong> to advance. Nothing is simulated.
+        </p>
+        <p class="fineprint">
+          Evaluation artifacts land in <code>artifacts/ui_runs/</code>.
+          The published <code>results/</code> snapshot is read-only from this console.
+        </p>
+        <div class="intro__note">
+          <span class="intro__note-mark" aria-hidden="true">※</span>
+          <span>Hit = gold document <b>and</b> gold page <b>and</b> the verbatim evidence quote inside one top-3 chunk.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps" id="steps" aria-label="Pipeline steps"></section>
+
+    <section class="colophon">
+      <div>
+        <p class="eyebrow">Benchmark</p>
+        <p>20 frozen questions · 15 dev / 5 test · 6 metadata-filter questions</p>
+      </div>
+      <div>
+        <p class="eyebrow">Corpus</p>
+        <p>Project Gutenberg #11 · <i>Alice's Adventures in Wonderland</i> · public domain</p>
+      </div>
+      <div>
+        <p class="eyebrow">Honesty</p>
+        <p>Small test split; scores are illustrative, not a general claim. Strict hit definition is never relaxed.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Day 06 · Data ingestion &amp; retrieval benchmark</span>
+    <span class="footer__mono">ui/server.py · local only · 127.0.0.1</span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -13,9 +13,29 @@ Họ và tên: Nguyễn Lê Hải Nam · MSSV: 2A202603699 · Lớp: L3A
   ~3.800), cắt tại ranh giới đoạn. Tổng **142.777 ký tự**, 12 chương; bỏ bìa, mục lục, boilerplate
   Gutenberg và dấu phân cách. Quy tắc đếm nằm trong manifest; ID trang là vị trí 1-based sau
   chuẩn hóa.
-- **Chuẩn hóa/lỗi:** Unicode NFC, bỏ soft hyphen/BOM, gộp khoảng trắng, giữ cấu trúc đoạn; loại
-  `[Illustration]` và dòng `* * *`. Không có trang scan nên không dùng OCR. Không có trang rỗng;
-  toàn bộ 39 đơn vị dài ≥2.057 ký tự. Hạn chế: một số từ in nghiêng còn dấu `_..._` trong text.
+- **Chuẩn hóa (bước Normalize):** `normalize_text()` trong `starter/src/ingestion.py` chạy lại
+  mỗi lần load `pages.jsonl` và **idempotent** (chuẩn hóa hai lần không đổi text), nên bước load
+  không thể làm lệch corpus. Thứ tự cố định: (1) Unicode **NFC**; (2) CRLF/CR → `\n`; (3) xóa
+  soft hyphen `U+00AD` và BOM `U+FEFF`; (4) `U+00A0` → space; (5) xóa dòng `[Illustration]` và
+  dòng phân cách `* * *`; (6) gộp cụm space/tab, bỏ space thừa quanh newline, gộp cụm ≥3 newline
+  thành `\n\n`; (7) `strip`. Giữ nguyên ranh giới đoạn vì strategy B cắt theo paragraph — làm
+  phẳng newline sẽ làm sai so sánh B–C. (8) Chuyển bảng về dạng markdown (nếu có).
+- **Đo hiệu quả chuẩn hóa:** đếm trên phần thân sách của `data/alice_raw.txt` (144.483 ký tự,
+  không tính boilerplate Gutenberg): **3** dòng `* * *`, **121** cụm space/tab, **69** dòng có
+  space thừa ở đầu/cuối, **43** cụm newline ≥3; còn NFC, CRLF, soft hyphen, BOM, NBSP và
+  `[Illustration]` đều **0** lần — bản #11 vốn đã sạch, các rule đó vẫn giữ cho nhánh PDF. Không
+  có trang scan nên không dùng OCR. Sau chuẩn hóa không còn space đôi hay newline ≥3; hạn chế:
+  **220** chỗ in nghiêng vẫn còn dấu `_..._` trong text.
+- **Kiểm lỗi (fail-closed, không tự sửa):** trước khi ingest, `src/run.py` kiểm ≥30 đơn vị, page
+  ID duy nhất, không đơn vị rỗng, mỗi đơn vị ≥1.500 ký tự (thực tế ngắn nhất **2.057**),
+  `manifest.page_count` và tập page ID khớp `pages.jsonl`; benchmark phải có ≥20 câu, ID duy
+  nhất, ≥15 dev/≥5 test, ≥3 câu filter và ≥1 ở test, mỗi `evidence_quote` là substring nguyên
+  văn của đúng gold page, `gold_source_id` khớp `document_id`, mọi giá trị filter có thật trong
+  metadata trang đó, và không câu hỏi nào chứa lại chính quote. `load_pages_jsonl` ném
+  `ValueError` kèm `file:dòng` khi record thiếu field/sai kiểu và khi text rỗng; `normalize_text`
+  ném `TypeError` nếu input không phải str. `benchmark/verify_benchmark.py` lặp lại các kiểm tra
+  này độc lập, không gọi API. Mọi vi phạm đều dừng pipeline — không fallback, không sửa tay
+  corpus; UI (bước 1) hiển thị đúng các cổng này kèm giá trị quan sát được.
 - **Embedding:** `BAAI/bge-base-en-v1.5`, **768 chiều**, chạy local qua `fastembed` 0.9.1 /
   `onnxruntime` 1.31.1 (Python 3.11.15). `embed_documents` dùng cho chunk, `query_embed` cho câu
   hỏi; cùng model cho cả ba cấu hình. Không dùng mock/random vector; lỗi provider được raise,
