@@ -1,4 +1,4 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed_size,1600,200,"document_id, source, page, section, language, document_type",none,"fastembed BAAI/bge-base-en-v1.5 (768d, ONNX)",Fixed windows maximize coverage but may cut sentences and evidence; expected lower coherence and Hit@3 than paragraph chunks.,8/15,12/15,1/5,3/5,"116 chunks; 158,147 chars; embed 37.46s; search 0.64s. Chunk starts/ends often mid-sentence."
+B,by_paragraph,1000,0,"document_id, source, page, section, language, document_type",none,"fastembed BAAI/bge-base-en-v1.5 (768d, ONNX)",Paragraph grouping preserves local meaning and should improve coherence and ranking; more chunks may dilute retrieval.,9/15,12/15,2/5,3/5,"180 chunks; 142,495 chars; embed 32.60s; search 0.57s. Best Hit@1 overall; one dev filter question fails because no filter is applied."
+C,by_paragraph,1000,0,"document_id, source, page, section, language, document_type","section, only when the question supplies it (6/20 questions; 3 test)","fastembed BAAI/bge-base-en-v1.5 (768d, ONNX); reuses B vectors",Same chunks as B; section filter should remove cross-chapter distractors on filter questions without changing non-filter questions.,9/15,13/15,2/5,3/5,"180 chunks; 142,495 chars; embedding 0s (reused); search 0.61s. Dev Hit@3 +1 vs B; all 3 filter questions compliant (A/B: 2/3)."

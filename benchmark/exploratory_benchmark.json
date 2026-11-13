@@ -1,0 +1,252 @@
+[
+  {
+    "id": "q01",
+    "split": "dev",
+    "type": "direct",
+    "question": "What was on the little three-legged table that Alice came upon?",
+    "expected_answer": "a tiny golden key",
+    "gold_source_id": "alice-1865",
+    "gold_page": 2,
+    "evidence_quote": "Suddenly she came upon a little three-legged table, all made of solid glass; there was nothing on it except a tiny golden key",
+    "section": "Chapter I - Down the Rabbit-Hole",
+    "filter": null
+  },
+  {
+    "id": "q02",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "How deep was the pool formed by Alice's tears?",
+    "expected_answer": "About four inches deep",
+    "gold_source_id": "alice-1865",
+    "gold_page": 4,
+    "evidence_quote": "shedding gallons of tears, until there was a large pool all round her, about four inches deep and reaching half down the hall.",
+    "section": "Chapter II - The Pool of Tears",
+    "filter": null
+  },
+  {
+    "id": "q03",
+    "split": "test",
+    "type": "conditional",
+    "question": "If Alice asks the Mouse “Où est ma chatte?”, how does the Mouse react?",
+    "expected_answer": "It gives a sudden leap out of the water and seems to quiver all over with fright.",
+    "gold_source_id": "alice-1865",
+    "gold_page": 6,
+    "evidence_quote": "So she began again: “Où est ma chatte?” which was the first sentence in her French lesson-book. The Mouse gave a sudden leap out of the water, and seemed to quiver all over with fright.",
+    "section": "Chapter II - The Pool of Tears",
+    "filter": null
+  },
+  {
+    "id": "q04",
+    "split": "dev",
+    "type": "direct",
+    "question": "According to the Dodo, what would be the best thing to get them dry?",
+    "expected_answer": "A Caucus-race",
+    "gold_source_id": "alice-1865",
+    "gold_page": 7,
+    "evidence_quote": "the best thing to get us dry would be a Caucus-race.",
+    "section": "Chapter III - A Caucus-Race and a Long Tale",
+    "filter": null
+  },
+  {
+    "id": "q05",
+    "split": "test",
+    "type": "direct",
+    "question": "In Chapter III - A Caucus-Race and a Long Tale, who is Dinah?",
+    "expected_answer": "Alice's cat",
+    "gold_source_id": "alice-1865",
+    "gold_page": 9,
+    "evidence_quote": "Dinah’s our cat. And she’s such a capital one for catching mice you can’t think!",
+    "section": "Chapter III - A Caucus-Race and a Long Tale",
+    "filter": {
+      "section": "Chapter III - A Caucus-Race and a Long Tale"
+    }
+  },
+  {
+    "id": "q06",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "According to Chapter IV - The Rabbit Sends in a Little Bill, why did the Rabbit’s attempt to open the door fail?",
+    "expected_answer": "The door opened inwards and Alice’s elbow was pressed hard against it.",
+    "gold_source_id": "alice-1865",
+    "gold_page": 11,
+    "evidence_quote": "Presently the Rabbit came up to the door, and tried to open it; but, as the door opened inwards, and Alice’s elbow was pressed hard against it, that attempt proved a failure.",
+    "section": "Chapter IV - The Rabbit Sends in a Little Bill",
+    "filter": {
+      "section": "Chapter IV - The Rabbit Sends in a Little Bill"
+    }
+  },
+  {
+    "id": "q07",
+    "split": "dev",
+    "type": "conditional",
+    "question": "If Alice saw a good opportunity to escape from the puppy, what did she do?",
+    "expected_answer": "She set off at once and ran until she was tired and out of breath.",
+    "gold_source_id": "alice-1865",
+    "gold_page": 13,
+    "evidence_quote": "This seemed to Alice a good opportunity for making her escape; so she set off at once, and ran till she was quite tired and out of breath, and till the puppy’s bark sounded quite faint in the distance.",
+    "section": "Chapter IV - The Rabbit Sends in a Little Bill",
+    "filter": null
+  },
+  {
+    "id": "q08",
+    "split": "dev",
+    "type": "direct",
+    "question": "According to the Caterpillar, what will one side of the mushroom do?",
+    "expected_answer": "Make you grow taller",
+    "gold_source_id": "alice-1865",
+    "gold_page": 15,
+    "evidence_quote": "One side will make you grow taller, and the other side will make you grow shorter.",
+    "section": "Chapter V - Advice from a Caterpillar",
+    "filter": null
+  },
+  {
+    "id": "q09",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "What made Alice decide that the creature coming out of the wood was a footman rather than a fish?",
+    "expected_answer": "He was wearing livery.",
+    "gold_source_id": "alice-1865",
+    "gold_page": 17,
+    "evidence_quote": "(she considered him to be a footman because he was in livery: otherwise, judging by his face only, she would have called him a fish)",
+    "section": "Chapter VI - Pig and Pepper",
+    "filter": null
+  },
+  {
+    "id": "q10",
+    "split": "dev",
+    "type": "direct",
+    "question": "In Chapter VI - Pig and Pepper, what does Alice think it would be murder to do?",
+    "expected_answer": "leave it behind",
+    "gold_source_id": "alice-1865",
+    "gold_page": 19,
+    "evidence_quote": "they’re sure to kill it in a day or two: wouldn’t it be murder to leave it behind?",
+    "section": "Chapter VI - Pig and Pepper",
+    "filter": {
+      "section": "Chapter VI - Pig and Pepper"
+    }
+  },
+  {
+    "id": "q11",
+    "split": "dev",
+    "type": "conditional",
+    "question": "If the Hatter's watch is two days wrong, what does he say would not suit the works?",
+    "expected_answer": "butter",
+    "gold_source_id": "alice-1865",
+    "gold_page": 21,
+    "evidence_quote": "“Two days wrong!” sighed the Hatter. “I told you butter wouldn’t suit the works!”",
+    "section": "Chapter VII - A Mad Tea-Party",
+    "filter": null
+  },
+  {
+    "id": "q12",
+    "split": "test",
+    "type": "paraphrase",
+    "question": "What names did the Dormouse give for the three little sisters in his story?",
+    "expected_answer": "Elsie, Lacie, and Tillie",
+    "gold_source_id": "alice-1865",
+    "gold_page": 23,
+    "evidence_quote": "and their names were Elsie, Lacie, and Tillie; and they lived at the bottom of a well—",
+    "section": "Chapter VII - A Mad Tea-Party",
+    "filter": null
+  },
+  {
+    "id": "q13",
+    "split": "dev",
+    "type": "direct",
+    "question": "In the croquet game, what were the balls?",
+    "expected_answer": "live hedgehogs",
+    "gold_source_id": "alice-1865",
+    "gold_page": 25,
+    "evidence_quote": "the balls were live hedgehogs, the mallets live flamingoes",
+    "section": "Chapter VIII - The Queen’s Croquet-Ground",
+    "filter": null
+  },
+  {
+    "id": "q14",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "What did Alice propose should be done to settle the disagreement over the Cheshire Cat?",
+    "expected_answer": "Ask the Duchess about it.",
+    "gold_source_id": "alice-1865",
+    "gold_page": 27,
+    "evidence_quote": "Alice could think of nothing else to say but “It belongs to the Duchess: you’d better ask _her_ about it.”",
+    "section": "Chapter VIII - The Queen’s Croquet-Ground",
+    "filter": null
+  },
+  {
+    "id": "q15",
+    "split": "dev",
+    "type": "conditional",
+    "question": "In Chapter IX - The Mock Turtle’s Story, if Alice were a Duchess, what would she refuse to have in her kitchen at all?",
+    "expected_answer": "pepper",
+    "gold_source_id": "alice-1865",
+    "gold_page": 28,
+    "evidence_quote": "“When _I’m_ a Duchess,” she said to herself, (not in a very hopeful tone though), “I won’t have any pepper in my kitchen _at all_.",
+    "section": "Chapter IX - The Mock Turtle’s Story",
+    "filter": {
+      "section": "Chapter IX - The Mock Turtle’s Story"
+    }
+  },
+  {
+    "id": "q16",
+    "split": "dev",
+    "type": "direct",
+    "question": "What does the Mock Turtle say they can do without when trying the first figure?",
+    "expected_answer": "lobsters",
+    "gold_source_id": "alice-1865",
+    "gold_page": 31,
+    "evidence_quote": "“Come, let’s try the first figure!” said the Mock Turtle to the Gryphon. “We can do without lobsters, you know. Which shall sing?”",
+    "section": "Chapter X - The Lobster Quadrille",
+    "filter": null
+  },
+  {
+    "id": "q17",
+    "split": "test",
+    "type": "direct",
+    "question": "In Chapter X - The Lobster Quadrille, what song does the Gryphon suggest the Mock Turtle sing to Alice?",
+    "expected_answer": "Turtle Soup",
+    "gold_source_id": "alice-1865",
+    "gold_page": 33,
+    "evidence_quote": "“Hm! No accounting for tastes! Sing her ‘_Turtle Soup_,’ will you, old fellow?”",
+    "section": "Chapter X - The Lobster Quadrille",
+    "filter": {
+      "section": "Chapter X - The Lobster Quadrille"
+    }
+  },
+  {
+    "id": "q18",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "What two items was the White Rabbit holding while standing near the King?",
+    "expected_answer": "a trumpet and a scroll of parchment",
+    "gold_source_id": "alice-1865",
+    "gold_page": 34,
+    "evidence_quote": "near the King was the White Rabbit, with a trumpet in one hand, and a scroll of parchment in the other.",
+    "section": "Chapter XI - Who Stole the Tarts?",
+    "filter": null
+  },
+  {
+    "id": "q19",
+    "split": "dev",
+    "type": "conditional",
+    "question": "If the Knave did not sign the verses, what did the King say that does to the matter?",
+    "expected_answer": "It only makes the matter worse.",
+    "gold_source_id": "alice-1865",
+    "gold_page": 38,
+    "evidence_quote": "“If you didn’t sign it,” said the King, “that only makes the matter worse.",
+    "section": "Chapter XII - Alice’s Evidence",
+    "filter": null
+  },
+  {
+    "id": "q20",
+    "split": "test",
+    "type": "direct",
+    "question": "In her final outburst, what does Alice call the Queen and the court?",
+    "expected_answer": "a pack of cards",
+    "gold_source_id": "alice-1865",
+    "gold_page": 39,
+    "evidence_quote": "“You’re nothing but a pack of cards!”",
+    "section": "Chapter XII - Alice’s Evidence",
+    "filter": null
+  }
+]

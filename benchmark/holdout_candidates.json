@@ -1,0 +1,74 @@
+[
+  {
+    "question": "How tall was Alice after she drank from the bottle?",
+    "expected_answer": "ten inches high",
+    "evidence_quote": "she was now only ten inches high",
+    "type": "direct",
+    "page": 3,
+    "split": "test",
+    "section": "Chapter I - Down the Rabbit-Hole",
+    "document_id": "alice-1865",
+    "filter": null
+  },
+  {
+    "question": "In Chapter III - A Caucus-Race and a Long Tale, what does the Dodo finally declare about who has won the race?",
+    "expected_answer": "Everybody has won, and all must have prizes.",
+    "evidence_quote": "At last the Dodo said, “_Everybody_ has won, and all must have prizes.”",
+    "type": "paraphrase",
+    "page": 8,
+    "split": "test",
+    "section": "Chapter III - A Caucus-Race and a Long Tale",
+    "document_id": "alice-1865",
+    "filter": {
+      "section": "Chapter III - A Caucus-Race and a Long Tale"
+    }
+  },
+  {
+    "question": "If Alice wants to play croquet with the Queen today, what does she say has not happened to her yet?",
+    "expected_answer": "She has not been invited yet.",
+    "evidence_quote": "“I should like it very much,” said Alice, “but I haven’t been invited yet.”",
+    "type": "conditional",
+    "page": 20,
+    "split": "test",
+    "section": "Chapter VI - Pig and Pepper",
+    "document_id": "alice-1865",
+    "filter": null
+  },
+  {
+    "question": "In Chapter VIII - The Queen’s Croquet-Ground, why are the three gardeners painting the white roses red?",
+    "expected_answer": "They accidentally put in a white rose-tree instead of a red one and fear the Queen will have their heads cut off.",
+    "evidence_quote": "this here ought to have been a _red_ rose-tree, and we put a white one in by mistake; and if the Queen was to find it out, we should all have our heads cut off",
+    "type": "direct",
+    "page": 24,
+    "split": "test",
+    "section": "Chapter VIII - The Queen’s Croquet-Ground",
+    "document_id": "alice-1865",
+    "filter": {
+      "section": "Chapter VIII - The Queen’s Croquet-Ground"
+    }
+  },
+  {
+    "question": "In Chapter XI - Who Stole the Tarts?, what explanation does the Hatter give when the King calls his hat stolen?",
+    "expected_answer": "He keeps hats to sell and has none of his own; he is a hatter.",
+    "evidence_quote": "“I keep them to sell,” the Hatter added as an explanation; “I’ve none of my own. I’m a hatter.”",
+    "type": "paraphrase",
+    "page": 35,
+    "split": "test",
+    "section": "Chapter XI - Who Stole the Tarts?",
+    "document_id": "alice-1865",
+    "filter": {
+      "section": "Chapter XI - Who Stole the Tarts?"
+    }
+  },
+  {
+    "question": "If Alice had not jumped up in such a hurry, what would she not have tipped over?",
+    "expected_answer": "the jury-box",
+    "evidence_quote": "she jumped up in such a hurry that she tipped over the jury-box with the edge of her skirt",
+    "type": "conditional",
+    "page": 37,
+    "split": "test",
+    "section": "Chapter XII - Alice’s Evidence",
+    "document_id": "alice-1865",
+    "filter": null
+  }
+]

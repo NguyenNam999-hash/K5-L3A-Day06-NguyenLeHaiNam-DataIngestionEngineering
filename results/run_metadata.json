@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-11-13T09:51:37.283190+00:00",
+  "corpus": {
+    "page_count": 39,
+    "content_chars": 142777,
+    "model_tokens": 19968,
+    "document_ids": [
+      "alice-1865"
+    ],
+    "manifest": "data/manifest.json"
+  },
+  "embedding": {
+    "provider": "fastembed (local ONNX)",
+    "model": "BAAI/bge-base-en-v1.5",
+    "dimensions": 768,
+    "query_method": "query_embed (model-specific query prefix)"
+  },
+  "store": {
+    "backend": "PostgreSQL + pgvector",
+    "table": "chunks",
+    "metric": "cosine",
+    "search": "exact scan (no ANN index)"
+  },
+  "strategies": {
+    "A": {
+      "chunking": "fixed_size",
+      "chunk_size": 1600,
+      "overlap": 200,
+      "filter": false,
+      "stats": {
+        "chunks": 116,
+        "total_chars": 158147,
+        "min_chars": 219,
+        "max_chars": 1600,
+        "avg_chars": 1363.34
+      },
+      "model_tokens": 41003,
+      "embedding_seconds": 37.457,
+      "ingest_seconds": 0.079,
+      "search_seconds": 0.637
+    },
+    "B": {
+      "chunking": "by_paragraph",
+      "chunk_size": 1000,
+      "overlap": 0,
+      "filter": false,
+      "stats": {
+        "chunks": 180,
+        "total_chars": 142495,
+        "min_chars": 88,
+        "max_chars": 999,
+        "avg_chars": 791.64
+      },
+      "model_tokens": 37067,
+      "embedding_seconds": 32.604,
+      "ingest_seconds": 0.073,
+      "search_seconds": 0.565
+    },
+    "C": {
+      "chunking": "by_paragraph",
+      "chunk_size": 1000,
+      "overlap": 0,
+      "filter": true,
+      "stats": {
+        "chunks": 180,
+        "total_chars": 142495,
+        "min_chars": 88,
+        "max_chars": 999,
+        "avg_chars": 791.64
+      },
+      "model_tokens": 37067,
+      "embedding_seconds": 0.0,
+      "ingest_seconds": 0.08,
+      "search_seconds": 0.606
+    }
+  },
+  "totals": {
+    "wall_seconds": 72.894,
+    "embedding_seconds": 70.061,
+    "search_seconds": 1.808,
+    "estimated_cost_usd": 0.0
+  },
+  "benchmark": {
+    "path": "benchmark/benchmark.json",
+    "questions": 20,
+    "dev": 15,
+    "test": 5,
+    "filter_questions": 6
+  }
+}

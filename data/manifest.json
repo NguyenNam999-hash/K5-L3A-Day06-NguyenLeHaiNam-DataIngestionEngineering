@@ -1,0 +1,212 @@
+{
+  "source_id": "alice-1865",
+  "title": "Alice's Adventures in Wonderland",
+  "author": "Lewis Carroll",
+  "source_path_or_url": "https://www.gutenberg.org/files/11/11-0.txt",
+  "license_or_permission": "Public domain in the United States. Redistributed under the Project Gutenberg License (https://www.gutenberg.org/policy/license.html).",
+  "accessed_at": "2026-11-13",
+  "snapshot": "Project Gutenberg eBook #11 (11-0.txt), Millennium Fulcrum Edition 3.0",
+  "raw_file": "data/alice_raw.txt",
+  "raw_sha256": "a3a27f8edbf7fcd9b8ba8435494440e24952deaa3e2f2d65192d4cb7ca403754",
+  "content_unit": "Sequential text unit (the source is plain text, not a paginated PDF).",
+  "counting_rule": "Each unit is a contiguous, non-overlapping text segment within one chapter, built at paragraph boundaries to approximately 3,800 characters (1,500 minimum, 5,000 maximum). Covers, contents, Project Gutenberg boilerplate and separator marks are excluded. Page IDs are 1-based positions after normalization.",
+  "page_count": 39,
+  "content_chars": 142777,
+  "pages": [
+    {
+      "page": 1,
+      "section": "Chapter I - Down the Rabbit-Hole",
+      "char_count": 3352
+    },
+    {
+      "page": 2,
+      "section": "Chapter I - Down the Rabbit-Hole",
+      "char_count": 3757
+    },
+    {
+      "page": 3,
+      "section": "Chapter I - Down the Rabbit-Hole",
+      "char_count": 4139
+    },
+    {
+      "page": 4,
+      "section": "Chapter II - The Pool of Tears",
+      "char_count": 3059
+    },
+    {
+      "page": 5,
+      "section": "Chapter II - The Pool of Tears",
+      "char_count": 3609
+    },
+    {
+      "page": 6,
+      "section": "Chapter II - The Pool of Tears",
+      "char_count": 4222
+    },
+    {
+      "page": 7,
+      "section": "Chapter III - A Caucus-Race and a Long Tale",
+      "char_count": 3370
+    },
+    {
+      "page": 8,
+      "section": "Chapter III - A Caucus-Race and a Long Tale",
+      "char_count": 3722
+    },
+    {
+      "page": 9,
+      "section": "Chapter III - A Caucus-Race and a Long Tale",
+      "char_count": 2057
+    },
+    {
+      "page": 10,
+      "section": "Chapter IV - The Rabbit Sends in a Little Bill",
+      "char_count": 3561
+    },
+    {
+      "page": 11,
+      "section": "Chapter IV - The Rabbit Sends in a Little Bill",
+      "char_count": 3584
+    },
+    {
+      "page": 12,
+      "section": "Chapter IV - The Rabbit Sends in a Little Bill",
+      "char_count": 3728
+    },
+    {
+      "page": 13,
+      "section": "Chapter IV - The Rabbit Sends in a Little Bill",
+      "char_count": 2957
+    },
+    {
+      "page": 14,
+      "section": "Chapter V - Advice from a Caterpillar",
+      "char_count": 3689
+    },
+    {
+      "page": 15,
+      "section": "Chapter V - Advice from a Caterpillar",
+      "char_count": 3763
+    },
+    {
+      "page": 16,
+      "section": "Chapter V - Advice from a Caterpillar",
+      "char_count": 4318
+    },
+    {
+      "page": 17,
+      "section": "Chapter VI - Pig and Pepper",
+      "char_count": 3784
+    },
+    {
+      "page": 18,
+      "section": "Chapter VI - Pig and Pepper",
+      "char_count": 3570
+    },
+    {
+      "page": 19,
+      "section": "Chapter VI - Pig and Pepper",
+      "char_count": 3777
+    },
+    {
+      "page": 20,
+      "section": "Chapter VI - Pig and Pepper",
+      "char_count": 2656
+    },
+    {
+      "page": 21,
+      "section": "Chapter VII - A Mad Tea-Party",
+      "char_count": 3798
+    },
+    {
+      "page": 22,
+      "section": "Chapter VII - A Mad Tea-Party",
+      "char_count": 3798
+    },
+    {
+      "page": 23,
+      "section": "Chapter VII - A Mad Tea-Party",
+      "char_count": 5050
+    },
+    {
+      "page": 24,
+      "section": "Chapter VIII - The Queen’s Croquet-Ground",
+      "char_count": 3788
+    },
+    {
+      "page": 25,
+      "section": "Chapter VIII - The Queen’s Croquet-Ground",
+      "char_count": 3115
+    },
+    {
+      "page": 26,
+      "section": "Chapter VIII - The Queen’s Croquet-Ground",
+      "char_count": 3699
+    },
+    {
+      "page": 27,
+      "section": "Chapter VIII - The Queen’s Croquet-Ground",
+      "char_count": 3019
+    },
+    {
+      "page": 28,
+      "section": "Chapter IX - The Mock Turtle’s Story",
+      "char_count": 3800
+    },
+    {
+      "page": 29,
+      "section": "Chapter IX - The Mock Turtle’s Story",
+      "char_count": 3591
+    },
+    {
+      "page": 30,
+      "section": "Chapter IX - The Mock Turtle’s Story",
+      "char_count": 5198
+    },
+    {
+      "page": 31,
+      "section": "Chapter X - The Lobster Quadrille",
+      "char_count": 3731
+    },
+    {
+      "page": 32,
+      "section": "Chapter X - The Lobster Quadrille",
+      "char_count": 3751
+    },
+    {
+      "page": 33,
+      "section": "Chapter X - The Lobster Quadrille",
+      "char_count": 3858
+    },
+    {
+      "page": 34,
+      "section": "Chapter XI - Who Stole the Tarts?",
+      "char_count": 3597
+    },
+    {
+      "page": 35,
+      "section": "Chapter XI - Who Stole the Tarts?",
+      "char_count": 3701
+    },
+    {
+      "page": 36,
+      "section": "Chapter XI - Who Stole the Tarts?",
+      "char_count": 3041
+    },
+    {
+      "page": 37,
+      "section": "Chapter XII - Alice’s Evidence",
+      "char_count": 3632
+    },
+    {
+      "page": 38,
+      "section": "Chapter XII - Alice’s Evidence",
+      "char_count": 3545
+    },
+    {
+      "page": 39,
+      "section": "Chapter XII - Alice’s Evidence",
+      "char_count": 4391
+    }
+  ]
+}

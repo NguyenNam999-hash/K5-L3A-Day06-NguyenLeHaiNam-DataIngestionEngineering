@@ -1,0 +1,17 @@
+Corpus: 39 pages, 142777 chars
+Benchmark: 20 questions (15 dev / 5 test)
+Embedding model: BAAI/bge-base-en-v1.5 (768 dims)
+
+Strategy  Split    Hit@1      Hit@3     Chunks
+A        dev      8/15    12/15     116
+A        test     1/5      3/5      116
+A        overall  9/20    15/20     116
+B        dev      9/15    12/15     180
+B        test     2/5      3/5      180
+B        overall 11/20    15/20     180
+C        dev      9/15    13/15     180
+C        test     2/5      3/5      180
+C        overall 11/20    16/20     180
+
+Wrote results/traces.json, metrics.json, metrics.csv, run_metadata.json
+Total wall time: 74.939s
